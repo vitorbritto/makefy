@@ -1,5 +1,5 @@
 clean:
 	@echo ""
-	@echo " → Cleaning files"
+	@echo " $(INFO) Cleaning files"
 
 	@rm -r $(DIST_FOLDER)

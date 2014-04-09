@@ -1,22 +1,22 @@
 # Include third-party plugins
 # ------------------------------------------------------------
 plugins:
-	# jQuery - latest version
+# jQuery - latest version
 	@curl http://code.jquery.com/jquery.min.js                                  -o $(SRC_FOLDER)/scripts/jquery.min.js
 
-	# Legacy Scritps
+# Legacy Scritps
 	@curl https://raw.github.com/aFarkas/html5shiv/master/dist/html5shiv.js     -o $(SRC_FOLDER)/scripts/legacy.js
 	@curl https://raw.github.com/scottjehl/Respond/master/respond.min.js        >> $(SRC_FOLDER)/scripts/legacy.js
 
 	@$(UGLIFYJS) -c --output $(SRC_FOLDER)/scripts/legacy.min.js $(SRC_FOLDER)/scripts/legacy.js
 	@rm $(SRC_FOLDER)/scripts/legacy.js
 
-	# Plugins
+# Plugins
 	@curl http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js -o $(SRC_FOLDER)/scripts/plugins.js
 	@curl http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js     >> $(SRC_FOLDER)/scripts/plugins.js
 
-	# Include our custom plugins files here
-	# @curl http://pathtoyourplugin.com/plugin.name.min.js >> $(SRC_FOLDER)/scripts/plugins.js
+# Include our custom plugins files here
+# @curl http://pathtoyourplugin.com/plugin.name.min.js >> $(SRC_FOLDER)/scripts/plugins.js
 
 	@$(UGLIFYJS) -c --output $(SRC_FOLDER)/scripts/plugins.min.js $(SRC_FOLDER)/scripts/plugins.js
 	@rm $(SRC_FOLDER)/scripts/plugins.js
@@ -55,12 +55,12 @@ ignorejs:
 # ------------------------------------------------------------
 scripts:
 	@echo ""
-	@echo " → Including third-party plugins"
+	@echo " $(INFO) Including third-party plugins"
 
 	@make plugins
 
 	@echo ""
-	@echo " → Concatenating and minifying scripts"
+	@echo " $(INFO) Concatenating and minifying scripts"
 
 	@make ignorejs
 	@make concatjs

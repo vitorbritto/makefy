@@ -31,7 +31,7 @@ ignorecss:
 # ------------------------------------------------------------
 styles:
 	@echo ""
-	@echo " → Concatenating and minifying stylesheets"
+	@echo " $(INFO) Concatenating and minifying stylesheets"
 
 	@make ignorecss
 	@make concatcss

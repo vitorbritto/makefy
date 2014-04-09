@@ -7,7 +7,7 @@
 #
 # USAGE:
 # - make [tasks] : run specific task
-# - make help    : show instructions
+# - make [help]  : show instructions
 #
 # -----------------------------------------------------------------------------------------------------
 
@@ -25,7 +25,7 @@ include $(TASKS_FOLDER)*.mk
 # Custom Tasks
 build: init views styles scripts copy
 	@echo ""
-	@echo " → Done!"
+	@echo " $(CHECK) Done!"
 
 lint: lintcss lintjs
 compile: init server lint views styles scripts

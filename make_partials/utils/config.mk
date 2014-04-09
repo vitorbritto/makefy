@@ -3,15 +3,23 @@
 # -------------------------------------------------------------------------------------
 
 # Main
-DATE = `date +'%y.%m.%d %H:%M:%S'`
+DATE  = `date +'%y.%m.%d %H:%M:%S'`
+DONE  = \033[32m✔\033[32m
+ERROR = \033[31m✖\033[31m
+INFO  = \033[36m→\033[36m
+LINE  = -----------------------------------------
+
+#Check Programs
+NODE_VERSION := $(shell node --version 2>/dev/null)
+GIT_VERSION  := $(shell git --version 2>/dev/null)
 
 # Bin
 UGLIFYJS = ./node_modules/.bin/uglifyjs
 JSHINT   = ./node_modules/.bin/jshint
 CSSLINT  = ./node_modules/.bin/csslint
 RECESS   = ./node_modules/.bin/recess
-MOCHA    = ./node_modules/.bin/
-JASMINE  = ./node_modules/.bin/
+MOCHA    = ./node_modules/.bin/mocha
+JASMINE  = ./node_modules/.bin/jasmine-node
 
 # Directories
 APP          = app/{scripts,styles,images/icons,fonts,views,spec/{helpers,modules}}
@@ -20,7 +28,7 @@ SRC_FOLDER   = app
 DIST_FOLDER  = public
 CSS_FOLDER   = $(SRC_FOLDER)/styles
 JS_FOLDER    = $(SRC_FOLDER)/scripts
-TEST_FOLDER  = $(SRC_FOLDER)/spec/
+TEST_FOLDER  = $(SRC_FOLDER)/spec
 
 # Files
 VIEWS := $(notdir $(wildcard $(SRC_FOLDER)/*.html))

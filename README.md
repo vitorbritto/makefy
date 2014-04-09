@@ -23,7 +23,8 @@ $ git clone git://github.com/vitorbritto/makefy.git [project-name]
 $ cd [project-name]
 ```
 
-2 - Profit! :)
+3 - Execute: `make npm` <br/>
+4 - Profit! :)
 
 ### How it works?
 
@@ -33,13 +34,31 @@ The `config.mk` file contain all the necessary settings for your build process. 
 
     # Main Config
     DATE = `date +'%y.%m.%d %H:%M:%S'`                  # Every backup has a date as a suffix
+    DONE  = \033[32m✔\033[32m                           # Color Message for DONE status
+    ERROR = \033[32m✖\033[31m                           # Color Message for ERROR status
+    INFO  = \033[32m→\033[36m                           # Color Message for INFO status
+    LINE  = -----------------------------------------   # Breakline
 
-    # Directories Config
-    SRC_FOLDER   = app                                  # Source folder
-    DIST_FOLDER  = dist                                 # Deploy/Public folder
-    CSS_FOLDER   = $(src_dir)/assets/styles             # Stylesheets folder
-    JS_FOLDER    = $(src_dir)/assets/scripts            # Scripts folder
-    TEST_FOLDER  = $(src_dir)/spec/**                   # Specs/Tests folder
+    # Check Version
+    NODE_VERSION := $(shell node --version 2>/dev/null)
+    GIT_VERSION  := $(shell git --version 2>/dev/null)
+
+    # Bin Files
+    UGLIFYJS = ./node_modules/.bin/uglifyjs
+    JSHINT   = ./node_modules/.bin/jshint
+    CSSLINT  = ./node_modules/.bin/csslint
+    RECESS   = ./node_modules/.bin/recess
+    MOCHA    = ./node_modules/.bin/mocha
+    JASMINE  = ./node_modules/.bin/jasmine-node
+
+    # Directories
+    APP          = app/{scripts,styles,images/icons,fonts,views,spec/{helpers,modules}}
+    PUBLIC       = public/{scripts,styles,images/icons,fonts}
+    SRC_FOLDER   = app
+    DIST_FOLDER  = public
+    CSS_FOLDER   = $(SRC_FOLDER)/styles
+    JS_FOLDER    = $(SRC_FOLDER)/scripts
+    TEST_FOLDER  = $(SRC_FOLDER)/spec
 
     # Files Config
     VIEWS := $(notdir $(wildcard $(SRC_FOLDER)/*.html)) # HTML files to concatenate
@@ -62,11 +81,15 @@ The `config.mk` file contain all the necessary settings for your build process. 
 
 **Available tasks:**
 
-- `make lint`   : lint Scripts and Stylesheets
-- `make compile`: compile your files (html, css and js)
-- `make build`  : clean previous files, minifies and concatenates assets files, then copy to dist folder
-- `make spec`   : run tests with mocha or jasmine
-- `make deploy` : deploy your files with FTP or RSYNC method
+- `make check`   : stand-alone check for NodeJS and Git versions
+- `make npm`     : install dependencies
+- `make lint`    : lint Scripts and Stylesheets
+- `make scripts` : lint and compile scripts
+- `make styles`  : lint and compile styles
+- `make compile` : compile your files (html, css and js)
+- `make build`   : clean previous files, minifies and concatenates assets files, then copy to dist folder
+- `make spec`    : run tests with mocha or jasmine
+- `make deploy`  : deploy your files with FTP or RSYNC method
 
 
 ## License

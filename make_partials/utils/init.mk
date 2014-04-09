@@ -3,13 +3,17 @@
 # -------------------------------------------------------------------------------------
 
 init:
-	@echo "-------------------------------------------------------------------"
-	@echo " → Initializing Build Proccess"
-	@echo "-------------------------------------------------------------------"
-	@echo ""
+ifdef $(NODE_VERSION)
+	@echo "$(ERROR) NodeJS not found! This script requires it to initialize. Please, install NodeJS."
+else
+	@make check
 
-	# Create Initial Structure
+	@echo "$(LINE)"
+	@echo " → Initializing Build Proccess"
+	@echo "$(LINE)"
+	@echo ""
 	@echo " → Scaffolding"
 
 	@mkdir -p $(APP)
 	@mkdir -p $(PUBLIC)
+endif
