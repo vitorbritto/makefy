@@ -56,8 +56,8 @@ The `config.mk` file contain all the necessary settings for your build process. 
     PASS   = password                                   # Password
     DIST   = www/public/path                            # Destination Path
     SRC    = path/to/deploy                             # Source Folder
-    IGNORE = .gitignore node_modules .DS_Store          # Do not include these files when deploy (only rsync)
-    FLAGS  =                                            # Specific options (only rsync)
+    IGNORE = .gitignore node_modules .DS_Store ...      # Ignore these files (only rsync)
+    FLAGS  = ...                                        # Specific options (only rsync)
 
 
 **Available tasks:**
