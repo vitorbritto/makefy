@@ -15,7 +15,8 @@ It's quite simple to get start with make. Check the following tasks and how to s
 
 ### Installation
 
-1 - Clone this repository and access the generated folder
+1 - First of all, make sure you have [Node.js](http://nodejs.org/) installed. <br/>
+2 - Clone this repository and access the generated folder
 
 ```bash
 $ git clone git://github.com/vitorbritto/makefy.git [project-name]
@@ -31,7 +32,7 @@ $ cd [project-name]
 The `config.mk` file contain all the necessary settings for your build process. Check out a detailed diagram of the initial configuration:
 
     # Main Config
-    DATE = `date +'%y.%m.%d %H:%M:%S'`                  # Every backup has a date as a suffix when generated
+    DATE = `date +'%y.%m.%d %H:%M:%S'`                  # Every backup has a date as a suffix
 
     # Directories Config
     SRC_FOLDER   = app                                  # Source folder
@@ -50,18 +51,20 @@ The `config.mk` file contain all the necessary settings for your build process. 
     IGNORE_JS  = jquery.min.js legacy.min.js            # Don't minify or concatenate these JS files
 
     # Deploy Config
-    HOST   = host.domain.com                            # Server Hostname
-    USER   = username                                   # Server Username
-    PASS   = password                                   # Server Password
-    PATH   = www/public/path                            # Server Path
-    IGNORE = .gitignore node_modules .DS_Store          # Don't include these files on deploy
+    HOST   = ftp.domain.com                             # Hostname
+    USER   = username                                   # Username
+    PASS   = password                                   # Password
+    DIST   = www/public/path                            # Destination Path
+    SRC    = path/to/deploy                             # Source Folder
+    IGNORE = .gitignore node_modules .DS_Store          # Do not include these files when deploy (only rsync)
+    FLAGS  =                                            # Specific options (only rsync)
 
 
 **Available tasks:**
 
 - `make lint`   : lint Scripts and Stylesheets
 - `make compile`: compile your files (html, css and js)
-- `make build`  : clean previous files, minifies and concatenates assets files (except images) and copy to dist folder
+- `make build`  : clean previous files, minifies and concatenates assets files, then copy to dist folder
 - `make spec`   : run tests with mocha or jasmine
 - `make deploy` : deploy your files with FTP or RSYNC method
 

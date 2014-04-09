@@ -7,24 +7,23 @@ lintcss: $(CSS_LINT_FILES)
 # Concatenate Styles
 # ------------------------------------------------------------
 concatcss:
-	@mkdir -p $(DIST_FOLDER)/assets/styles
 	@for f in $(CSS_FOLDER); do \
-		(cat $(CSS_FOLDER)/$$f >> $(DIST_FOLDER)/assets/styles/styles.css) || exit; \
+		(cat $(CSS_FOLDER)/$$f >> $(DIST_FOLDER)/styles/styles.css) || exit; \
 	done
 
 
 # Minify Styles
 # ------------------------------------------------------------
 mincss:
-	@recess --compress $(DIST_FOLDER)/assets/styles/styles.css > $(DIST_FOLDER)/assets/styles/styles.min.css
-	@rm $(DIST_FOLDER)/assets/styles/styles.css
+	@$(RECESS) --compress $(DIST_FOLDER)/styles/styles.css > $(DIST_FOLDER)/styles/styles.min.css
+	@rm $(DIST_FOLDER)/styles/styles.css
 
 
 # Ignored Styles from Concatenate and Minify process
 # ------------------------------------------------------------
 ignorecss:
 	@for f in $(IGNORE_CSS); do \
-		(cp $(CSS_FOLDER)/$$f $(DIST_FOLDER)/assets/styles/) || exit; \
+		(cp $(CSS_FOLDER)/$$f $(DIST_FOLDER)/styles/) || exit; \
 	done
 
 

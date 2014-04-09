@@ -23,11 +23,9 @@ include $(TASKS_FOLDER)*.mk
 # -- CUSTOM TASKS -------------------------------------------------------------------------------------
 
 # Custom Tasks
-build: init clean views styles scripts copy
+build: init views styles scripts copy
 	@echo ""
-	@echo "-------------------------------------------------------------------"
-	@echo " → Initializing Build process"
-	@echo "-------------------------------------------------------------------"
+	@echo " → Done!"
 
 lint: lintcss lintjs
 compile: init server lint views styles scripts

@@ -8,4 +8,8 @@ init:
 	@echo "-------------------------------------------------------------------"
 	@echo ""
 
-	@mkdir -p $(DIST_FOLDER)
+	# Create Initial Structure
+	@echo " → Scaffolding"
+
+	@mkdir -p $(APP)
+	@mkdir -p $(PUBLIC)

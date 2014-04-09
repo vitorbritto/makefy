@@ -1,0 +1,30 @@
+{
+  "name": "makefy",
+  "version": "0.0.1",
+  "description": "An easy way to build with makefile",
+  "main": "index.js",
+  "scripts": {
+    "test": "make spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://vitorbritto@github.com/vitorbritto/makefy.git"
+  },
+  "keywords": [
+    "makefile"
+  ],
+  "author": "Vitor Britto <code@vitorbritto.com.br> (http://vitorbritto.com.br/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vitorbritto/makefy/issues"
+  },
+  "homepage": "https://github.com/vitorbritto/makefy",
+  "devDependencies": {
+    "csslint": "~0.10.0",
+    "uglify-js": "~2.4.13",
+    "jshint": "~2.5.0",
+    "recess": "~1.1.9",
+    "mocha": "~1.18.2",
+    "jasmine-node": "~1.14.3"
+  }
+}
