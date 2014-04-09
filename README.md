@@ -2,9 +2,9 @@
 
 ## Welcome
 
-Makefy is and easy way to automate build tasks with Makefile. If you're not familiar with make, give it a try. It's not as hard as it seems.
+Makefy is an easy way to automate build tasks with Makefile. If you're not familiar with make, give it a try. It's not as hard as it seems.
 
-> **WORK IN PROGRESS!**
+> **WORK IN PROGRESS!** <br>
 > **TODO LIST:** [https://github.com/vitorbritto/makefy/issues/1](https://github.com/vitorbritto/makefy/issues/1)
 
 
