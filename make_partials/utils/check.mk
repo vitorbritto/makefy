@@ -2,9 +2,6 @@
 # STAND-ALONE CHECK
 # -------------------------------------------------------------------------------------
 
-test:
-
-
 check:
 ifdef $(NODE_VERSION)
 	@echo " $(ERROR) NodeJS does not appear to be installed with your system."

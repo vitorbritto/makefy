@@ -90,6 +90,7 @@ The `config.mk` file contain all the necessary settings for your build process. 
 - `make build`   : clean previous files, minifies and concatenates assets files, then copy to dist folder
 - `make spec`    : run tests with mocha or jasmine
 - `make deploy`  : deploy your files with FTP or RSYNC method
+- `make bkp`     : version control with gzip
 
 
 ## License

@@ -34,6 +34,6 @@ rsync:
 # Ignored Styles for deploy
 # ------------------------------------------------------------
 ignorefiles:
-	# @for f in $(IGNORE); do \
-	# 	exit; \
-	# done
+	@for f in $(IGNORE); do \
+		exit; \
+	done

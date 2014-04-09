@@ -3,7 +3,6 @@
 # -------------------------------------------------------------------------------------
 
 # Main
-DATE  = `date +'%y.%m.%d %H:%M:%S'`
 DONE  = \033[32m✔\033[32m
 ERROR = \033[31m✖\033[31m
 INFO  = \033[36m→\033[36m
@@ -47,4 +46,11 @@ PASS   = password
 DIST   = www/public/path
 SRC    = path/to/deploy
 IGNORE = .gitignore node_modules .DS_Store
-FLASG  =
+FLAGS  =
+
+# Backup
+BKP_VERSION     = "$(date +'%d_%m_%Y_%H_%M_%S')"
+BKP_FILE        = "app_$(NOW)".gz
+BKP_SRC_FOLDER  = public
+BKP_DIST_FOLDER = bkp
+BKP_LOG         = "$BKP_DIST_FOLDER/logs/"backup_log_"$(date +'%Y_%m')".txt
