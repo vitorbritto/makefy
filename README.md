@@ -8,7 +8,6 @@ Makefy is an easy way to automate build tasks with Makefile. If you're not famil
 > **TODO LIST:** [https://github.com/vitorbritto/makefy/issues/1](https://github.com/vitorbritto/makefy/issues/1)
 
 
-
 ## Getting Started
 
 It's quite simple to get start with make. Check the following tasks and how to set up your makefile.
